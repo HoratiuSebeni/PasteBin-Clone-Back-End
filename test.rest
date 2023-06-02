@@ -1,0 +1,43 @@
+POST http://127.0.0.1:3000/users/register
+Content-Type: application/json
+
+{
+    "email": "andrei@gmaila.com",
+    "name": "andi",
+    "password": "user"
+}
+
+###
+
+POST http://127.0.0.1:3000/users/login/
+Content-Type: application/json
+
+{
+    "email": "andrei@gmaila.com",
+    "password": "user"
+}
+
+###
+
+GET http://127.0.0.1:3000/users
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsImlhdCI6MTY4NDE3MjAwMX0.J9jAjOURMWtp8-DY3AS64hhL9qAGNj4gnixLP-FI9no
+
+###
+
+POST http://127.0.0.1:3000/users/invalidateToken
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsImlhdCI6MTY4NDE3MjAwMX0.J9jAjOURMWtp8-DY3AS64hhL9qAGNj4gnixLP-FI9no
+
+###
+
+POST http://127.0.0.1:3000/post/1
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsImlhdCI6MTY4MjgwNzU0NH0.-O8Rik-OiQIqWyW9PXFXTDai3RIJ4pArt2KKgcgNSX4
+Content-Type: application/json
+
+{
+    "content":"abc"
+}
+
+###
+
+DELETE http://127.0.0.1:3000/post/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsImlhdCI6MTY4MjgwNzU0NH0.-O8Rik-OiQIqWyW9PXFXTDai3RIJ4pArt2KKgcgNSX4
