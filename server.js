@@ -54,7 +54,7 @@ app.post('/users/login', async (req, res) => {
         where: { id: userId },
         data: { jwt: token },
       });
-      res.json({ token });
+      res.json(token);
     } else {
       res.status(500).json({ message: 'Password incorrect.' });
     }

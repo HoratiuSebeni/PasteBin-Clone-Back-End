@@ -9,6 +9,7 @@ function authenticate(req, res, next) {
         return;
     }
     const token = authHeader.split(' ')[1];
+    console.log(authHeader);
     try {
         const decodedToken = jwt.verify(token, 'secret-key');
         const userId = decodedToken.userID;

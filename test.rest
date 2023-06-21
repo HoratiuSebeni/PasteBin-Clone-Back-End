@@ -13,8 +13,8 @@ POST http://127.0.0.1:3000/users/login/
 Content-Type: application/json
 
 {
-    "email": "andrei@gmaila.com",
-    "password": "user"
+    "email": "alex@alex.com",
+    "password": "alexalex"
 }
 
 ###
@@ -25,19 +25,25 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsImlhd
 ###
 
 POST http://127.0.0.1:3000/users/invalidateToken
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsImlhdCI6MTY4NDE3MjAwMX0.J9jAjOURMWtp8-DY3AS64hhL9qAGNj4gnixLP-FI9no
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsImlhdCI6MTY4NDI3NzQ2Nn0.aHS8oF13wWUNAiZu7GDJNuCMqg8iTFa7zTrrcw_p3WM
 
 ###
 
-POST http://127.0.0.1:3000/post/1
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsImlhdCI6MTY4MjgwNzU0NH0.-O8Rik-OiQIqWyW9PXFXTDai3RIJ4pArt2KKgcgNSX4
+POST http://127.0.0.1:3000/paste/create
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjE0LCJpYXQiOjE2ODcxODAxNDJ9.B8rO-V747xDszC8R0SzBr4v4Vehd4h0P2kLlxirb2pE
 Content-Type: application/json
 
 {
-    "content":"abc"
+    "title": "aaa",
+    "content":"app.get('/paste/info/:id', async (req, res) => {\nconst { id } = req.params;\ntry {\n    const pasteInfo = await prisma.paste.findFirst({\n      where: { id: parseInt(id) },\n      include: {\n        author: {\n          select: {\n            name: true,\n            email: true,\n          }\n        },\n      },\n    });\n    res.json(pasteInfo);\n  } catch (error) {\n    console.error(error);\n    res.status(500).json({ message: 'Failed to retrieve paste information.' })\n  }\n});"
 }
 
 ###
 
-DELETE http://127.0.0.1:3000/post/2
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsImlhdCI6MTY4MjgwNzU0NH0.-O8Rik-OiQIqWyW9PXFXTDai3RIJ4pArt2KKgcgNSX4
+GET http://127.0.0.1:3000/paste
+Content-Type: application/json
+
+###
+
+DELETE http://127.0.0.1:3000/paste/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySUQiOjEsImlhdCI6MTY4NDI3NzQ2Nn0.aHS8oF13wWUNAiZu7GDJNuCMqg8iTFa7zTrrcw_p3WM
